@@ -19,7 +19,7 @@ class ViewportsController < ApplicationController
   private
 
   def viewport_params
-    params.require(:viewport).permit(:width, :user_agent)
+    params.require(:viewport).permit(:width, :user_agent, :browser)
   end
 
   def set_viewport
