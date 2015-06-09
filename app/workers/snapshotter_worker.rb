@@ -6,7 +6,7 @@ class SnapshotterWorker < SnapshotWorker
 
   def initialize
     @driver_pool = ConnectionPool.new(size: 1, timeout: 5) do
-      Selenium::WebDriver.for(:firefox)
+      Selenium::WebDriver.for(:"#{@snapshot.viewport.browser}")
     end
   end
 
@@ -21,11 +21,12 @@ class SnapshotterWorker < SnapshotWorker
           outfile:        file,
           url:            @snapshot.url.address,
           driver:         driver,
+          browser:        @snapshot.viewport.browser  
         )
         snapshot = snapshotter.take_snapshot!
 
         Rails.logger.info <<-EOS
-          Saving snapshot of #{@snapshot.url} @ #{@snapshot.viewport}
+          Saving snapshot of #{@snapshot.url} @ #{@snapshot.viewport} with #{@snapshot.viewport.browser}
         EOS
 
         save_file_to_snapshot(@snapshot, file)
