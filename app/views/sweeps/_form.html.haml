@@ -17,6 +17,9 @@
     = f.text_field :delay_seconds, class: 'form-control', type: 'number',
       min: '1', step: '1', pattern: '\d+'
     %p.help-block= t('.delay_seconds_help')
+  .form-group
+    = f.label :threshold_warn, class: 'control-label'
+    = f.text_field :threshold_warn, class: 'form-control', type: 'number'
 
   .form-group
     = f.submit class: 'btn btn-primary'

@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.1.1'
+gem 'stackprof', '~> 0.2.7'
 
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'connection_pool'

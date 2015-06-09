@@ -64,6 +64,8 @@ en:
         email: Email address
         delay_seconds: Delay snapshotting (seconds)
         created_at: When
+        threshold_warn: Warning Threshold(precent)
+        threshold_crit: Failing Threshold(precent)
 
   shared:
     error_explanation:
