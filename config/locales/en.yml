@@ -188,6 +188,7 @@ en:
   viewports:
     edit:
       user_agent_help: Leave blank for the WebKit/PhantomJS default
+      browser_help: Leave blank for the firefox default
   urls:
     show:
       delete: Delete URL

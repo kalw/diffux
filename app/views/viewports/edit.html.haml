@@ -16,4 +16,8 @@
     %small= t('.user_agent_help')
     = f.text_area :user_agent, rows: 3, class: 'form-control'
   .form-group
+    = f.label :browser, class: 'control-label'
+    %small= t('.browser_help')
+    = f.text_field :browser, class: 'form-control'
+  .form-group
     = f.submit class: 'btn btn-primary'
