@@ -46,6 +46,8 @@ class SweepsController < ApplicationController
     params.require(:sweep).permit(:title,
                                   :description,
                                   :delay_seconds,
-                                  :email)
+                                  :email,
+                                  :threshold_warn,
+                                  :threshold_crit)
   end
 end

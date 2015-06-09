@@ -12,7 +12,8 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new(viewport_widths: "320\n1200",
-                           url_addresses:   'http://www.example.com/')
+                           url_addresses:   'http://www.example.com/',
+                           viewport_browser: "firefox")
   end
 
   def edit
@@ -55,6 +56,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :viewport_widths, :url_addresses)
+    params.require(:project).permit(:name, :viewport_widths, :url_addresses, :viewport_browser)
   end
 end

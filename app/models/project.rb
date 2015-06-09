@@ -4,6 +4,7 @@ class Project < ActiveRecord::Base
   validates :name, presence: true
 
   attr_accessor :viewport_widths
+  attr_accessor :viewport_browser
   attr_accessor :url_addresses
 
   has_many :urls,      dependent: :destroy
@@ -13,8 +14,13 @@ class Project < ActiveRecord::Base
   belongs_to :last_sweep, class_name: 'Sweep'
 
   after_validation :save_viewport_widths
-  after_validation :save_url_addresses
-
+  after_validation :save_url_addresses 
+     
+  
+  def viewport_browser
+    @viewport_browser ||= viewports(:browser)
+  end
+    
   # @return [String]
   def viewport_widths
     @viewport_widths ||= viewports.pluck(:width).join("\n")
@@ -38,7 +44,7 @@ class Project < ActiveRecord::Base
   def string_to_array(str)
     str.split(/\s+/).uniq.reject { |line| line.empty? }
   end
-
+  
   def save_viewport_widths
     if viewport_widths
       old_widths = viewports.pluck(:width)
@@ -49,7 +55,7 @@ class Project < ActiveRecord::Base
       end
 
       (new_widths - old_widths).each do |width|
-        viewports.new(width: width.to_i)
+        viewports.new(width: width.to_i, browser: @viewport_browser)
       end
     end
   end
@@ -68,4 +74,5 @@ class Project < ActiveRecord::Base
       end
     end
   end
+  
 end
