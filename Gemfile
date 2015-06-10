@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.1.1'
-gem 'stackprof', '~> 0.2.7'
+gem 'rails', '4.2.1'
 
-gem 'bootstrap-sass', '~> 3.1.0'
+gem 'bootstrap-sass', '~> 3.3.0'
 gem 'connection_pool'
-gem 'diffux-core', git: 'git@github.com:diffux/diffux-core.git', ref: '296627182ae769c708392cb45f73773bc9522a33'
+gem 'diffux-core', git: 'git@github.com:kalw/diffux-core.git', branch: 'switch-to-webdriver'
+
 gem 'haml-rails'
 gem 'paperclip'
 gem 'pg'
@@ -16,8 +16,8 @@ gem 'turbolinks'
 
 group :assets do
   gem 'autoprefixer-rails'
-  gem 'coffee-rails', '~> 4.0.1'
-  gem 'sass-rails',   '~> 4.0.2'
+  gem 'coffee-rails', '~> 4.1.0'
+  gem 'sass-rails',   '~> 5.0.0'
   gem 'uglifier',     '>= 1.0.3'
 end
 
