@@ -20,6 +20,9 @@
   .form-group
     = f.label :threshold_warn, class: 'control-label'
     = f.text_field :threshold_warn, class: 'form-control', type: 'number'
+  .form-group
+    = f.label :threshold_crit, class: 'control-label'
+    = f.text_field :threshold_crit, class: 'form-control', type: 'number'
 
   .form-group
     = f.submit class: 'btn btn-primary'

@@ -64,8 +64,8 @@ en:
         email: Email address
         delay_seconds: Delay snapshotting (seconds)
         created_at: When
-        threshold_warn: Warning Threshold(precent)
-        threshold_crit: Failing Threshold(precent)
+        threshold_warn: Warning Threshold (percent)
+        threshold_crit: Failing Threshold (percent)
 
   shared:
     error_explanation:
@@ -189,8 +189,8 @@ en:
         <strong>Oops!</strong> Nothing has been logged for this snapshot.
   viewports:
     edit:
-      user_agent_help: Leave blank for the WebKit/PhantomJS default
-      browser_help: Leave blank for the firefox default
+      user_agent_help: Leave blank for the browser default
+      browser_help: "Use browser name or browser name and grid url comma separated , i.e.: firefox OR chrome,http://localhost:4444/wd/hub"
   urls:
     show:
       delete: Delete URL

@@ -6,7 +6,13 @@ class SnapshotterWorker < SnapshotWorker
 
   def initialize
     @driver_pool = ConnectionPool.new(size: 1, timeout: 5) do
-      Selenium::WebDriver.for(:"#{@snapshot.viewport.browser}")
+      if @snapshot.viewport.browser =~ /^\w*$/
+        Selenium::WebDriver.for(:"#{@snapshot.viewport.browser}")
+      else
+        browser_short="#{@snapshot.viewport.browser.gsub(/([^,]*).*/,'\1')}"
+        browser_remote_url="#{@snapshot.viewport.browser.gsub(/[^,]*,\s?(.*)/,'\1')}"
+        Selenium::WebDriver.for(:remote,  :url => "#{browser_remote_url}", :desired_capabilities => :"#{browser_short}")
+      end
     end
   end
 
